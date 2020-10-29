@@ -15,16 +15,18 @@ def homepage():
 
 @app.route('/penguins')
 def penguins():
-    """Shows a message about penguins, Meredith's favorite animal."""
+    """Displays a message to the user about penguins, Meredith's favorite animal."""
     return "Penguins are cute!"
 
 @app.route('/tigers')
 def tigers():
-    """Shows a message about tigers, my favorite animal."""
+    """Displays a message to the user about tigers, my favorite animal."""
     return "Tigers are cool!"
 
-
-
+@app.route('/animal/<users_animal>')
+def favorite_animal(users_animal):
+    """Display a message to the user that changes based on their favorite animal."""
+    return f'Wow, {users_animal} is my favorite animal, too!'
 
 if __name__ == '__main__':
     app.run(debug=True)
