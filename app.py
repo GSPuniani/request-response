@@ -13,6 +13,16 @@ def homepage():
     """Shows a greeting to the user."""
     return "Are you there, world? It's me, Ducky!"
 
+@app.route('/penguins')
+def penguins():
+    """Shows a message about penguins, Meredith's favorite animal."""
+    return "Penguins are cute!"
+
+@app.route('/tigers')
+def tigers():
+    """Shows a message about tigers, my favorite animal."""
+    return "Tigers are cool!"
+
 
 
 
