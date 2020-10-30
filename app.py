@@ -38,7 +38,14 @@ def mad_libs(adjective, noun):
     """Displays a (humorous) message to the user that changes based on the adjective and the noun provided by the user."""
     return f'I like to order {adjective} {noun} from Chipotle.'
 
-
+@app.route('/multiply/<number1>/<number2>')
+def multiply(number1, number2):
+    """Checks if the user's two inputs are numbers, multiplies them, and then displays the result to the user."""
+    if number1.isdigit() and number2.isdigit():
+        result = int(number1) * int(number2)
+        return f'{number1} times {number2} is {result}.'
+    else:
+        return "Invalid inputs. Please try again by entering 2 numbers!"
 
 if __name__ == '__main__':
     app.run(debug=True)
