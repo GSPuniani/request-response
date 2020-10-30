@@ -1,9 +1,7 @@
-
-# TODO: Follow the assignment instructions to complete the required routes!
-# (And make sure to delete this TODO message when you're done!)
-
 # Import the flask library
 from flask import Flask
+# Import the random library for the Dice Game challenge
+import random
 
 # Set up the `app` variable to start writing routes
 app = Flask(__name__)
@@ -16,12 +14,12 @@ def homepage():
 @app.route('/penguins')
 def penguins():
     """Displays a message to the user about penguins, Meredith's favorite animal."""
-    return "Penguins are cute!"
+    return 'Penguins are cute!'
 
 @app.route('/tigers')
 def tigers():
     """Displays a message to the user about tigers, my favorite animal."""
-    return "Tigers are cool!"
+    return 'Tigers are cool!'
 
 @app.route('/animal/<users_animal>')
 def favorite_animal(users_animal):
@@ -47,7 +45,7 @@ def multiply(number1, number2):
         result = int(number1) * int(number2)
         return f'{number1} times {number2} is {result}.'
     else:
-        return "Invalid inputs. Please try again by entering 2 numbers!"
+        return 'Invalid inputs. Please try again by entering 2 numbers!'
 
 @app.route('/sayntimes/<word>/<n>')
 def sayntimes(word, n):
@@ -59,7 +57,7 @@ def sayntimes(word, n):
         # Display the repeated word and apply .strip() to remove trailing space after the last word
         return f'{repeated_word.strip()}'
     else:
-        return "Invalid input. Please try again by entering a word and a number!"
+        return 'Invalid input. Please try again by entering a word and a number!'
 
 @app.route('/reverse/<word>')
 def reverse(word):
@@ -90,6 +88,18 @@ def strangecaps(word):
             new_word += word[i].lower()
     return new_word
     
+@app.route('/dicegame')
+def dicegame():
+    """Simulates a die toss by printing a message to the user with a random integer between 1 and 6 (only 6 is a win)""" 
+    # Set player status to lost as default
+    player_status = 'lost'
+    # Randomly choose an integer between 1 and 6 (inclusive)
+    die_roll = random.randint(1, 6)
+    # Change player status to won only if the roll is a 6
+    if die_roll == 6:
+        player_status = 'won'
+    return f'You rolled a {die_roll}. You {player_status}!'
 
+    
 if __name__ == '__main__':
     app.run(debug=True)
