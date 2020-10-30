@@ -41,11 +41,25 @@ def mad_libs(adjective, noun):
 @app.route('/multiply/<number1>/<number2>')
 def multiply(number1, number2):
     """Checks if the user's two inputs are numbers, multiplies them, and then displays the result to the user."""
+    # Check if both inputs are strings that are entirely digits
     if number1.isdigit() and number2.isdigit():
+        # Cast the inputs as integers and multiply them
         result = int(number1) * int(number2)
         return f'{number1} times {number2} is {result}.'
     else:
         return "Invalid inputs. Please try again by entering 2 numbers!"
+
+@app.route('/sayntimes/<word>/<n>')
+def sayntimes(word, n):
+    """Checks if the user's second input is a number and then displays the input word that number of times to the user."""
+    # Check if the second input consists entirely of digits
+    if n.isdigit():
+        # Multiply the input word with a space at the end by the input number (string multiplication)
+        repeated_word = (word + ' ') * int(n)
+        # Display the repeated word and apply .strip() to remove trailing space after the last word
+        return f'{repeated_word.strip()}'
+    else:
+        return "Invalid input. Please try again by entering a word and a number!"
 
 if __name__ == '__main__':
     app.run(debug=True)
