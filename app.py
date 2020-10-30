@@ -72,6 +72,23 @@ def reverse(word):
     for i in range(word_len):
         reverse_word += word[word_len - i - 1]
     return reverse_word
+
+@app.route('/strangecaps/<word>')
+def strangecaps(word):
+    """Takes an input word from the user and displays the word with letters in alternating upper and lower case for the user"""
+    # Assign variable for word length
+    word_len = len(word)
+    # Define an empty string
+    new_word = ''
+    # Iterate through each letter of the word and add the modified letter to the new string
+    for i in range(word_len):
+        # If the index of the letter is odd, then change the letter to upper case
+        if i % 2 != 0:
+            new_word += word[i].upper()
+        # If the index of the letter is even, then change the letter to lower case
+        else:
+            new_word += word[i].lower()
+    return new_word
     
 
 if __name__ == '__main__':
