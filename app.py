@@ -61,5 +61,18 @@ def sayntimes(word, n):
     else:
         return "Invalid input. Please try again by entering a word and a number!"
 
+@app.route('/reverse/<word>')
+def reverse(word):
+    """Takes an input word from the user and displays the word in reverse for the user"""
+    # Assign variable for word length
+    word_len = len(word)
+    # Define an empty string 
+    reverse_word = ''
+    # Iterate from the end of the word to the beginning and add each letter to the new string
+    for i in range(word_len):
+        reverse_word += word[word_len - i - 1]
+    return reverse_word
+    
+
 if __name__ == '__main__':
     app.run(debug=True)
