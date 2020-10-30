@@ -24,17 +24,17 @@ def tigers():
 @app.route('/animal/<users_animal>')
 def favorite_animal(users_animal):
     """Displays a message to the user that changes based on their favorite animal."""
-    return f'Wow, {users_animal} is my favorite animal, too!'
+    return f'Wow, the {users_animal} is my favorite animal, too!'
 
 @app.route('/dessert/<users_dessert>')
 def favorite_dessert(users_dessert):
     """Displays a message to the user that changes based on their favorite dessert."""
-    return f'How did you know I liked {users_dessert}?'
+    return f'How did you know that I liked {users_dessert}?'
 
 @app.route('/madlibs/<adjective>/<noun>')
 def mad_libs(adjective, noun):
     """Displays a (humorous) message to the user that changes based on the adjective and the noun provided by the user."""
-    return f'I like to order {adjective} {noun} from Chipotle.'
+    return f'I like to order the {adjective} {noun} from Chipotle.'
 
 @app.route('/multiply/<number1>/<number2>')
 def multiply(number1, number2):
@@ -100,6 +100,6 @@ def dicegame():
         player_status = 'won'
     return f'You rolled a {die_roll}. You {player_status}!'
 
-    
+
 if __name__ == '__main__':
     app.run(debug=True)
